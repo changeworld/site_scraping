@@ -2,6 +2,7 @@
 
 require 'nokogiri'
 require 'open-uri'
+require 'sanitize'
 
 url = ARGV[0]
 
@@ -33,4 +34,49 @@ doc.css("div.totaldiv").each do |element|
       puts element.content
     end
   end
+  # doc sanitize
+  puts Sanitize.clean(element.inner_html, :elements => %w{
+    math
+    maction
+    maligngroup
+    malignmark
+    menclose
+    merror
+    mfenced
+    mfrac
+    mglyph
+    mi
+    mlabeledtr
+    mlongdiv
+    mmultiscripts
+    mn
+    mo
+    mover
+    mpadded
+    mphantom
+    mroot
+    mrow
+    ms
+    mscarries
+    mscarry
+    msgroup
+    msline
+    mspace
+    msqrt
+    msrow
+    mstack
+    mstyle
+    msub
+    msup
+    msubsup
+    mtable
+    mtd
+    mtext
+    mtr
+    munder
+    munderover
+    semantics
+    annotation
+    annotation-xml}
+  )
 end
