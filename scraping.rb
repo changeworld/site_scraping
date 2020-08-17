@@ -22,4 +22,15 @@ doc.css("div.totaldiv").each do |element|
     idx_2nd = element.content.strip.index('点', idx_1st+2)
     puts element.content.strip[idx_1st+2, idx_2nd - (idx_1st+2)]
   end
+  # qbody
+  element.css('div.qbody').each do |element|
+    # qnum
+    element.css('.qnum').each do |element|
+      puts element.content
+    end
+    # shomon1
+    element.css('.shomon1').each_with_index do |element, idx|
+      puts element.content
+    end
+  end
 end
