@@ -10,7 +10,7 @@ file = ARGV[1]
 doc = Nokogiri::HTML(URI.open(url))
 File.open(file, mode = 'w') do |f|
   doc.css("div.totaldiv").each do |element|
-    refinfo, subject_name, score, qnum, shomon1, doc = ''
+    refinfo, subject, score, qnum, shomon1, doc = ''
     refinfo
     # refinfo
     element.css('div.refinfo').each do |element|
@@ -83,6 +83,6 @@ File.open(file, mode = 'w') do |f|
           annotation-xml}
       )
     end
-    f.write("#{refinfo},#{subject_name},#{qnum},#{shomon1},#{score},#{doc.gsub(/[\r\n]/,"").strip}\n")
+    f.write("#{refinfo},#{subject},#{qnum},#{shomon1},#{score},#{doc.gsub(/[\r\n]/,"").strip}\n")
   end
 end
