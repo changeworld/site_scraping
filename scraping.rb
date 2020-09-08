@@ -8,7 +8,7 @@ url = ARGV[0]
 file = ARGV[1]
 
 doc = Nokogiri::HTML(URI.open(url))
-File.open(file, mode = 'w') do |f|
+File.open(file, mode = 'a') do |f|
   doc.css("div.totaldiv").each do |element|
     refinfo, subject, score, qnum, shomon1, doc = ''
     refinfo
