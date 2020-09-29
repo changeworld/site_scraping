@@ -14,6 +14,6 @@ end
 
 File.open(output_file, mode = 'w') do |f|
   array.each do |line|
-    f.write("#{line.join(",").gsub(/[\r\n]/,"").strip}\n")
+    f.write("#{line.join(",").gsub(/[\r\n]/, '').strip}\n")
   end
 end
